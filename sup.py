@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from aiogram import Bot, Dispatcher types
+from aiogram import Bot, Dispatcher, types
 from aiogram.types import BotCommand, BotCommandScopeChat
 from aiogram.utils import executor
 import logging
