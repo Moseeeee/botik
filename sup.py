@@ -21,7 +21,6 @@ import requests
 import spotipy
 import wikipediaapi
 from sympy import sympify, solve
-from aiogram.utils import executor
 
 API_TOKEN = '7017976892:AAGPCuZmgd67nmrem0yXIztfiP87vX0hocc'
 bot = Bot(token=API_TOKEN) 
