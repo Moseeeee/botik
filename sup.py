@@ -24,7 +24,7 @@ from sympy import sympify, solve
 
 API_TOKEN = '7017976892:AAHEyUtyXLsdtPrvlxRxGRbDYydWBbKCeKg'
 bot = Bot(token=API_TOKEN) 
-dp = Dispatcher(bot) 
+dp = Dispatcher() 
 
 
 
