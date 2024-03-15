@@ -687,7 +687,10 @@ async def check_message_frequency(message: types.Message):
         user_messages[user_id].append(current_time)
     else:
         user_messages[user_id] = [current_time]
-    
+async def main():
+    await dp.start_polling()
 
-                  
-executor.start_polling(dp, skip_updates=True
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    loop.create_task(main())
+    loop.run_forever()
