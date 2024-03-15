@@ -1,4 +1,4 @@
-from aiogram import Bot, Dispatcher, executor, types
+from aiogram import Bot, Dispatcher, types
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import BotCommand, BotCommandScopeChat
@@ -688,5 +688,28 @@ async def check_message_frequency(message: types.Message):
     
 
                   
-if name == 'main':
-    executor.startpolling(dp, onstartup=onstartup)
+async def on_startup(dp):
+    # выполнить какие-то действия при старте бота
+    pass
+
+async def on_shutdown(dp):
+    # выполнить какие-то действия при остановке бота
+    await bot.send_message(chat_id='-1002129257694', text="Бот выключен")
+    await bot.close()
+
+async def polling():
+    await bot.get_updates()
+
+async def main():
+    await on_startup(dp)
+    await polling()
+
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    try:
+        loop.run_until_complete(main())
+    except KeyboardInterrupt:
+        pass
+    finally:
+        loop.run_until_complete(on_shutdown(dp))
+        loop.close()
