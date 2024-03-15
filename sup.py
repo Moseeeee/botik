@@ -586,7 +586,7 @@ async def send_welcome(chat_id, message_id):
                      reply_markup=create_markup(),
                      reply_to_message_id=message_id)  # отправка сообщения с указанием id комментария, на который отвечаем
 
-# функция для создания кнопок
+
 def create_markup():
     markup = types.InlineKeyboardMarkup()
     markup.row(
@@ -595,7 +595,6 @@ def create_markup():
     )
     return markup
 
-# обработчик события 'message' для пересланных сообщений из вашего канала
 @dp.message_handler(content_types=types.ContentType.TEXT, is_forwarded=True)
 async def handle_forwarded_message(message: types.Message):
     if message.forward_from_chat.type == 'channel':
@@ -610,7 +609,7 @@ async def handle_messages(message: types.Message):
     chat_member = await bot.get_chat_member(message.chat.id, message.from_user.id)
     
     if chat_member.status in ['administrator', 'creator'] and message.text.startswith('.дел '):
-        chat_permissions = chat_member.can_delete_messages # Изменен этот атрибут
+        chat_permissions = chat_member.can_delete_messages
         
         if chat_permissions:
             await delete_messages(message)
@@ -689,8 +688,7 @@ async def check_message_frequency(message: types.Message):
 
 bot_stopped = False
 
-async def on_startup(dp):
-    # выполнить какие-то действия при старте бота
+async def on_startup(dp)
     pass
 
 async def on_shutdown(dp):
