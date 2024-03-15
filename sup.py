@@ -689,11 +689,5 @@ async def check_message_frequency(message: types.Message):
     
 
                   
-
-async def main():
-    await dp.start_polling()
-
-if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.create_task(main())
-    loop.run_forever()
+if name == 'main':
+    executor.startpolling(dp, onstartup=onstartup)
