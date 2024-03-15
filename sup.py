@@ -23,7 +23,7 @@ import wikipediaapi
 from sympy import sympify, solve
 
 API_TOKEN = '7017976892:AAHEyUtyXLsdtPrvlxRxGRbDYydWBbKCeKg'
-bot = (token=API_TOKEN) 
+bot = Bot(token=API_TOKEN) 
 dp = Dispatcher(bot) 
 
 
