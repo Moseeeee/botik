@@ -1,4 +1,4 @@
-from aiogram import Bot, Dispatcher, executor
+from aiogram import Bot, Dispatcher
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import BotCommand, BotCommandScopeChat
@@ -21,6 +21,7 @@ import requests
 import spotipy
 import wikipediaapi
 from sympy import sympify, solve
+from aiogram.dispatcher import executor
 
 API_TOKEN = '7017976892:AAGPCuZmgd67nmrem0yXIztfiP87vX0hocc'
 bot = Bot(token=API_TOKEN) 
