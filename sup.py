@@ -687,15 +687,18 @@ async def check_message_frequency(message: types.Message):
         user_messages[user_id] = [current_time]
     
 
-                  
+bot_stopped = False
+
 async def on_startup(dp):
     # выполнить какие-то действия при старте бота
     pass
 
 async def on_shutdown(dp):
-    # выполнить какие-то действия при остановке бота
-    await bot.send_message(chat_id='-1002129257694', text="Бот выключен")
-    await bot.close()
+    global bot_stopped
+    if not bot_stopped:
+        await bot.send_message(chat_id='your_chat_id', text="Бот выключен")
+        await bot.close()
+        bot_stopped = True
 
 async def polling():
     await bot.get_updates()
@@ -712,4 +715,5 @@ if __name__ == '__main__':
         pass
     finally:
         loop.run_until_complete(on_shutdown(dp))
-        loop.close()
+        loop.close()                  
+
